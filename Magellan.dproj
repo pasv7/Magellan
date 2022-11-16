@@ -1,0 +1,293 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{F5A93B57-D56F-4AFE-9829-2ADC04DFA11F}</ProjectGuid>
+        <MainSource>Magellan.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
+        <AppType>Application</AppType>
+        <FrameworkType>VCL</FrameworkType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_E>false</DCC_E>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+        <DCC_N>true</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_ImageBase>00400000</DCC_ImageBase>
+        <DCC_DebugInformation>1</DCC_DebugInformation>
+        <DCC_SymbolReferenceInfo>1</DCC_SymbolReferenceInfo>
+        <DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
+        <DCC_UsePackage>vcl;rtl;vclx;vclactnband;vclshlctrls;vclie;xmlrtl;inet;inetdbbde;inetdbxpress;webdsnap;dbrtl;vcldb;dsnap;soaprtl;websnap;adortl;bdertl;vcldbx;dbexpress;dsnapcon;dbxcds;ibxpress;teeui;teedb;tee;dss;indy;VclSmp;Rave50CLX;Rave50VCL;IntrawebDB_50_70;Intraweb_50_70;VclNewlyext;$(DCC_UsePackage)</DCC_UsePackage>
+        <SanitizedProjectName>Magellan</SanitizedProjectName>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_DebugInformation>0</DCC_DebugInformation>
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <DCCReference Include="Unit1.pas">
+            <Form>Form1</Form>
+        </DCCReference>
+        <DCCReference Include="Unit2.pas">
+            <Form>Form2</Form>
+        </DCCReference>
+        <DCCReference Include="Unit3.pas">
+            <Form>Form3</Form>
+        </DCCReference>
+        <DCCReference Include="Unit4.pas">
+            <Form>Form4</Form>
+        </DCCReference>
+        <DCCReference Include="Unit5.pas">
+            <Form>Form5</Form>
+        </DCCReference>
+        <DCCReference Include="Unit6.pas">
+            <Form>Form6</Form>
+        </DCCReference>
+        <DCCReference Include="Unit7.pas">
+            <Form>Form7</Form>
+        </DCCReference>
+        <DCCReference Include="Unit8.pas">
+            <Form>Form8</Form>
+        </DCCReference>
+        <DCCReference Include="Unit9.pas">
+            <Form>Form9</Form>
+        </DCCReference>
+        <DCCReference Include="Unit10.pas">
+            <Form>Form10</Form>
+        </DCCReference>
+        <DCCReference Include="Unit11.pas">
+            <Form>Form11</Form>
+        </DCCReference>
+        <DCCReference Include="Unit12.pas">
+            <Form>Form12</Form>
+        </DCCReference>
+        <DCCReference Include="Unit13.pas">
+            <Form>Form13</Form>
+        </DCCReference>
+        <DCCReference Include="Unit14.pas">
+            <Form>Form14</Form>
+        </DCCReference>
+        <DCCReference Include="Unit15.pas">
+            <Form>Form15</Form>
+        </DCCReference>
+        <DCCReference Include="Unit16.pas">
+            <Form>Form16</Form>
+        </DCCReference>
+        <DCCReference Include="Unit17.pas">
+            <Form>Form17</Form>
+        </DCCReference>
+        <DCCReference Include="Unit18.pas">
+            <Form>Form18</Form>
+        </DCCReference>
+        <DCCReference Include="Unit19.pas">
+            <Form>Form19</Form>
+        </DCCReference>
+        <DCCReference Include="Unit20.pas">
+            <Form>Form20</Form>
+        </DCCReference>
+        <DCCReference Include="Unit21.pas">
+            <Form>Form21</Form>
+        </DCCReference>
+        <DCCReference Include="Unit22.pas">
+            <Form>Form22</Form>
+        </DCCReference>
+        <DCCReference Include="Unit23.pas">
+            <Form>Form23</Form>
+        </DCCReference>
+        <DCCReference Include="Unit24.pas">
+            <Form>Form24</Form>
+        </DCCReference>
+        <DCCReference Include="Unit25.pas">
+            <Form>Form25</Form>
+        </DCCReference>
+        <DCCReference Include="Unit26.pas">
+            <Form>Form26</Form>
+        </DCCReference>
+        <DCCReference Include="Unit27.pas">
+            <Form>Form27</Form>
+        </DCCReference>
+        <DCCReference Include="Unit28.pas">
+            <Form>Form28</Form>
+        </DCCReference>
+        <DCCReference Include="Unit29.pas">
+            <Form>Form29</Form>
+        </DCCReference>
+        <DCCReference Include="Unit30.pas">
+            <Form>Form30</Form>
+        </DCCReference>
+        <DCCReference Include="Unit31.pas">
+            <Form>Form31</Form>
+        </DCCReference>
+        <DCCReference Include="Unit32.pas">
+            <Form>Form32</Form>
+        </DCCReference>
+        <DCCReference Include="Unit33.pas">
+            <Form>Form33</Form>
+        </DCCReference>
+        <DCCReference Include="Unit34.pas">
+            <Form>Form34</Form>
+        </DCCReference>
+        <DCCReference Include="Unit35.pas">
+            <Form>Form35</Form>
+        </DCCReference>
+        <DCCReference Include="Unit36.pas">
+            <Form>Form36</Form>
+        </DCCReference>
+        <DCCReference Include="Unit37.pas">
+            <Form>Form37</Form>
+        </DCCReference>
+        <DCCReference Include="Unit38.pas">
+            <Form>Form38</Form>
+        </DCCReference>
+        <DCCReference Include="Unit39.pas">
+            <Form>Form39</Form>
+        </DCCReference>
+        <DCCReference Include="Unit40.pas">
+            <Form>Form40</Form>
+        </DCCReference>
+        <DCCReference Include="Unit41.pas">
+            <Form>Form41</Form>
+        </DCCReference>
+        <DCCReference Include="Unit42.pas">
+            <Form>Form42</Form>
+        </DCCReference>
+        <DCCReference Include="Unit43.pas">
+            <Form>Form43</Form>
+        </DCCReference>
+        <DCCReference Include="Unit44.pas">
+            <Form>Form44</Form>
+        </DCCReference>
+        <DCCReference Include="Unit45.pas">
+            <Form>Form45</Form>
+        </DCCReference>
+        <DCCReference Include="Unit46.pas">
+            <Form>Form46</Form>
+        </DCCReference>
+        <DCCReference Include="Unit47.pas">
+            <Form>Form47</Form>
+        </DCCReference>
+        <DCCReference Include="Unit48.pas">
+            <Form>Form48</Form>
+        </DCCReference>
+        <DCCReference Include="Unit49.pas">
+            <Form>Form49</Form>
+        </DCCReference>
+        <DCCReference Include="Unit50.pas">
+            <Form>Form50</Form>
+        </DCCReference>
+        <DCCReference Include="Unit51.pas">
+            <Form>Form51</Form>
+        </DCCReference>
+        <DCCReference Include="Unit52.pas">
+            <Form>Form52</Form>
+        </DCCReference>
+        <DCCReference Include="Unit53.pas">
+            <Form>Form53</Form>
+        </DCCReference>
+        <DCCReference Include="Unit54.pas">
+            <Form>Form54</Form>
+        </DCCReference>
+        <DCCReference Include="Unit55.pas">
+            <Form>Form55</Form>
+        </DCCReference>
+        <DCCReference Include="Unit56.pas">
+            <Form>Form56</Form>
+        </DCCReference>
+        <DCCReference Include="Unit57.pas">
+            <Form>Form57</Form>
+        </DCCReference>
+        <DCCReference Include="Unit58.pas">
+            <Form>Form58</Form>
+        </DCCReference>
+        <DCCReference Include="Unit59.pas">
+            <Form>Form59</Form>
+        </DCCReference>
+        <DCCReference Include="Unit60.pas">
+            <Form>Form60</Form>
+        </DCCReference>
+        <DCCReference Include="Unit61.pas">
+            <Form>Form61</Form>
+        </DCCReference>
+        <DCCReference Include="Unit62.pas">
+            <Form>Form62</Form>
+        </DCCReference>
+        <DCCReference Include="Unit63.pas">
+            <Form>Form63</Form>
+        </DCCReference>
+        <DCCReference Include="Unit64.pas">
+            <Form>Form64</Form>
+        </DCCReference>
+        <DCCReference Include="Unit65.pas">
+            <Form>Form65</Form>
+        </DCCReference>
+        <DCCReference Include="Unit66.pas">
+            <Form>Form66</Form>
+        </DCCReference>
+        <DCCReference Include="Unit67.pas">
+            <Form>Form67</Form>
+        </DCCReference>
+        <DCCReference Include="Unit68.pas">
+            <Form>Form68</Form>
+        </DCCReference>
+        <DCCReference Include="Unit69.pas">
+            <Form>Form69</Form>
+        </DCCReference>
+        <DCCReference Include="Unit70.pas">
+            <Form>Form70</Form>
+        </DCCReference>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <Source>
+                    <Source Name="MainSource">Magellan.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Platforms>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">True</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>

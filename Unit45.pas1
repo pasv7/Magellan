@@ -1,0 +1,144 @@
+unit Unit45;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, TeEngine, Series, ExtCtrls, TeeProcs, Chart, Math;
+
+type
+  TForm45 = class(TForm)
+    Chart1: TChart;
+    Series1: TLineSeries;
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form45: TForm45;
+
+implementation
+
+uses Unit1,Unit44,Unit24;
+
+{$R *.dfm}
+
+procedure TForm45.FormShow(Sender: TObject);
+var i: Integer;
+escan: array of Double;
+coord: Real;
+begin
+
+Series1.Clear;
+Chart1.RightAxis.Visible:=True;
+escan:=nil;
+
+if dial=True then  begin
+Chart1.Title.Text.Clear;
+Chart1.Title.Text.Add('Сканирование потенциальной поверхности :: ' + Form1.OpenDialog1.FileName);
+if Length(stepcount)>1 then Chart1.BottomAxis.Title.Caption:='Номер шага'
+else Chart1.BottomAxis.Title.Caption:='Величина координаты';
+SetLength(escan,length(energyscan));
+for i:=0 to Length(escan)-1 do
+if energyscan[i]<>'' then escan[i]:=StrToFloat(energyscan[i]);
+
+for i:=0 to Length(escan)-1 do
+if escan[i]=0 then Break;
+SetLength(escan,i);
+
+Chart1.RightAxis.SetMinMax(0,(MaxValue(escan)-MinValue(escan))*27.2114*23.06);
+
+if Length(stepcount)=1 then begin
+for i:=0 to Length(energyscan)-1 do begin
+  if energyscan[i]='' then Break;
+coord:=initialval[0]+i*stepsize[0];
+Form45.Chart1.Series[0].AddXY(coord,StrToFloat(energyscan[i]),'',clRed);
+end;
+end
+
+else begin
+Chart1.BottomAxis.LabelsSeparation:=Round(Length(energyscan)/20);
+for i:=0 to Length(energyscan)-1 do begin
+Form45.Chart1.Series[0].AddXY(i,StrToFloat(energyscan[i]),'',clRed);
+end;
+
+end;
+
+end
+
+////////////////////////////////////OUT////////////////////////////////
+else begin
+
+Chart1.Title.Text.Clear;
+Chart1.Title.Text.Add('Сканирование потенциальной поверхности :: ' + Form1.OpenDialog2.Files[basket[Form44.ComboBox1.ItemIndex]]);
+if Form44.ListView1.Columns.Count>6 then Chart1.BottomAxis.Title.Caption:='Номер шага'
+else Chart1.BottomAxis.Title.Caption:='Величина координаты';
+SetLength(escan,length(energyscan_mult[basket[Form44.ComboBox1.ItemIndex]]));
+for i:=0 to Length(escan)-1 do
+if energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]<>'' then   escan[i]:=StrToFloat(energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]);
+
+for i:=0 to Length(escan)-1 do
+if escan[i]=0 then Break;
+SetLength(escan,i);
+
+
+
+Chart1.RightAxis.SetMinMax(0,(MaxValue(escan)-MinValue(escan))*27.2116*23.06);
+
+if Form44.ListView1.Columns.Count=6 then begin
+for i:=0 to Length(energyscan_mult[basket[Form44.ComboBox1.ItemIndex]])-1 do begin
+  if energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]='' then Break;
+coord:=initialval_mult[basket[Form44.ComboBox1.ItemIndex],0]+i*stepsize_mult[basket[Form44.ComboBox1.ItemIndex],0];
+Form45.Chart1.Series[0].AddXY(coord,StrToFloat(energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]),'',clRed);
+end;
+end
+
+else begin
+Chart1.BottomAxis.LabelsSeparation:=Round(Length(energyscan_mult[basket[Form44.ComboBox1.ItemIndex]])/20);
+for i:=0 to Length(energyscan_mult[basket[Form44.ComboBox1.ItemIndex]])-1 do begin
+  if energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]='' then Break;
+Form45.Chart1.Series[0].AddXY(i,StrToFloat(energyscan_mult[basket[Form44.ComboBox1.ItemIndex],i]),'',clRed);
+end;
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end;
+
+end.
+ 

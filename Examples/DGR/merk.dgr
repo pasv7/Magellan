@@ -1,0 +1,85 @@
+ !***********************************************************
+ !*                        Magellan                         *
+ !*                designed by PANDORA soft                 *
+ !*                                                         *
+ !*      DGR-descriptor for generating energy diagramm      *
+ !*      Works with the interpreter as part of Magellan     *
+ !***********************************************************
+
+
+ TD:  Yes
+ TD_pl = up
+ TD = "Энергетическая диаграмма"
+ TD(FS) = 16
+ TD(FN) = Arial
+ TD(FC) = Purple
+ TD(FSt) = Bold+Italic
+ IPX = 100
+ IPY = 80
+ SCX = 1
+ SCY = 16
+ SCIS = 92
+ AX:  Yes
+ AX = "Координата реакции"
+ AX(W) = 1
+ AX(FS) = 12
+ AX(FN) = Arial
+ AX(FC) = Black
+ AX(FSt) = Italic
+ AY:  Yes
+ AY = "Энергия, ккал/моль"
+ AY(W) = 1
+ AY(FS) = 12
+ AY(FN) = Arial
+ AY(FC) = Black
+ AY(FSt) = Italic
+ AYT(W) = 1
+ AYT(L) = 4
+ AYT(F) = 4
+ AYT_pl = out
+ AYT(FS) = 11
+ AYT(FN) = Arial
+ AYT(FC) = Black
+ AYT(FSt) = Normal
+
+ P0   0.0            LM     "(CH3)SH + CH2=CH-Cl"           [0]      Solid   Black     3   30
+ P1   88.6           LM     "(CH3)S + H + CH2=CH-Cl"        [1]      Solid   Black     3   30
+ P2   24.4           TS     "TS1"                           [1]      Solid   Aqua      3   30
+ P3   16.8           TS     "TS2"                           [1]      Solid   Aqua      3   30
+ P4   68.0           LM     "CH3 + SH + CH2=CH-Cl"          [1]      Solid   Black     3   30
+ P5   77.0           CI     "CI1"                           [1]      Solid   Lime      3   30
+ P6   12.4           LM     "CH3Cl + CH2=CH-SH"             [2]      Solid   Black     3   30
+ P7   -18.1          LM     "CH3-CH=CH2 + HSCl"             [3]      Solid   Black     3   30
+ P8   -27.4          LM     "HCl + CH3-CH=CH-SH"            [4]      Solid   Black     3   30
+ P9   14.6           Mexp   "MEXP"                          [4]      Solid   Fuchsia   3   30
+ P10  -44.8          LM     "CH3-CH2-CHCl-SH"               [5]      Solid   Black     3   30
+
+ AR   0->1    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-40,0):                                 Yes
+ AR   0->2    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-18,25):                                Yes
+ AR   0->3    1    Solid   Black       Name=(Tahoma,9,Red,Bold,0,0):                                   Yes
+ AR   0->4    1    Solid   Black       Name=(Tahoma,9,Red,Bold,0,0):                                   Yes
+ AR   0->5    1    Solid   Black       Name=(Tahoma,9,Red,Bold,8,40):                                  Yes
+ AR   1->6    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-5,20):                                 Yes
+ AR   2->6    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-21,22):                                Yes
+ AR   3->6    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-30,0):                                 Yes
+ AR   4->6    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-48,20):                                Yes
+ AR   5->6    1    Solid   Black       Name=(Tahoma,9,Red,Bold,0,0):                                   Yes
+ AR   6->7    1    Solid   Black       Name=(Tahoma,9,Red,Bold,10,5):                                  Yes
+ AR   6->9    1    Dot     Black       Name=(Tahoma,9,Red,Bold,0,-5):                                  Yes
+ AR   7->9    1    Solid   Black       Name=(Tahoma,9,Red,Bold,0,0):                                   Yes
+ AR   7->8    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-23,-5):                                Yes
+ AR   8->9    1    Solid   Black       Name=(Tahoma,9,Red,Bold,-10,0):                                 Yes
+ AR   8->10   1    Solid   Black       Name=(Tahoma,9,Red,Bold,-40,0):                                 Yes
+ AR   9->10   1    Solid   Black       Name=(Tahoma,9,Red,Bold,7,0):                                   Yes
+
+ SPT   P0    Name=(Arial,8,Blue,Normal,25,-40):                             Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P1    Name=(Arial,8,Blue,Normal,0,0):                                Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P2    Name=(Arial,8,Aqua,Normal,11,0):                               Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P3    Name=(Arial,8,Aqua,Normal,11,-40):                             Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P4    Name=(Arial,8,Blue,Normal,110,-10):                            Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P5    Name=(Arial,10,Green,Bold+Italic+Underline,58,-10):            Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P6    Name=(Arial,8,Blue,Normal,40,0):                               Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P7    Name=(Arial,8,Blue,Normal,-80,-10):                            Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P8    Name=(Arial,8,Blue,Normal,0,5):                                Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P9    Name=(Arial,10,Green,Bold+Italic+Underline,10,0):              Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes
+ SPT   P10   Name=(Arial,8,Blue,Normal,30,0):                               Yes   Energy=(Arial,10,Black,Normal,0,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               Yes

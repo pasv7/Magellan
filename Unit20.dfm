@@ -1,0 +1,125 @@
+object Form20: TForm20
+  Left = 453
+  Top = 216
+  Width = 706
+  Height = 475
+  Caption = #1052#1072#1089#1090#1077#1088' '#1087#1086#1089#1090#1088#1086#1077#1085#1080#1103' '#1101#1085#1077#1088#1075#1077#1090#1080#1095#1077#1089#1082#1080#1093' '#1076#1080#1072#1075#1088#1072#1084#1084' :: '#1064#1072#1075' 1'
+  Color = clBtnFace
+  Font.Charset = RUSSIAN_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Label1: TLabel
+    Left = 144
+    Top = 53
+    Width = 64
+    Height = 18
+    Caption = #1056#1077#1072#1075#1077#1085#1090#1099
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlue
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 488
+    Top = 52
+    Width = 67
+    Height = 18
+    Caption = #1055#1088#1086#1076#1091#1082#1090#1099
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlue
+    Font.Height = -15
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Label3: TLabel
+    Left = 16
+    Top = 368
+    Width = 37
+    Height = 16
+    Caption = 'Label3'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clBlue
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+  end
+  object BitBtn1: TBitBtn
+    Left = 16
+    Top = 8
+    Width = 165
+    Height = 33
+    Caption = #1044#1086#1073#1072#1074#1080#1090#1100' DAT'
+    TabOrder = 0
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 185
+    Top = 8
+    Width = 165
+    Height = 33
+    Caption = #1054#1095#1080#1089#1090#1080#1090#1100' '#1087#1086#1083#1103
+    TabOrder = 1
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 355
+    Top = 8
+    Width = 165
+    Height = 33
+    Caption = #1059#1076#1072#1083#1080#1090#1100' '#1086#1090#1084#1077#1095#1077#1085#1085#1099#1077
+    TabOrder = 2
+    OnClick = BitBtn3Click
+  end
+  object ScrollBox1: TScrollBox
+    Left = 16
+    Top = 73
+    Width = 665
+    Height = 287
+    TabOrder = 3
+    object Splitter1: TSplitter
+      Left = 328
+      Top = 0
+      Height = 283
+      Align = alCustom
+      Beveled = True
+      ResizeStyle = rsLine
+    end
+  end
+  object BitBtn4: TBitBtn
+    Left = 280
+    Top = 400
+    Width = 145
+    Height = 33
+    Caption = #1057#1092#1086#1088#1084#1080#1088#1086#1074#1072#1090#1100
+    TabOrder = 4
+    OnClick = BitBtn4Click
+  end
+  object CheckBox1: TCheckBox
+    Left = 532
+    Top = 17
+    Width = 145
+    Height = 17
+    Caption = #1040#1082#1090#1080#1074#1072#1094#1080#1103' '#1091#1076#1072#1083#1077#1085#1080#1103
+    TabOrder = 5
+    OnClick = CheckBox1Click
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = #1060#1072#1081#1083#1099' '#1090#1077#1088#1084#1086#1093#1080#1084#1080#1080' (*.dat)|*.dat'
+    Options = [ofHideReadOnly, ofAllowMultiSelect, ofEnableSizing]
+    Left = 624
+    Top = 40
+  end
+end

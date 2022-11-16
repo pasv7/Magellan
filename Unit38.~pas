@@ -1,0 +1,25 @@
+unit Unit38;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ComCtrls;
+
+type
+  TForm38 = class(TForm)
+    ListView1: TListView;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form38: TForm38;
+
+implementation
+
+{$R *.dfm}
+
+end.

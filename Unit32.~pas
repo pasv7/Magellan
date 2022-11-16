@@ -1,0 +1,52 @@
+unit Unit32;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, ExtCtrls;
+
+type
+  TForm32 = class(TForm)
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    GroupBox3: TGroupBox;
+    GroupBox4: TGroupBox;
+    GroupBox5: TGroupBox;
+    GroupBox6: TGroupBox;
+    CheckBox1: TCheckBox;
+    CheckBox2: TCheckBox;
+    CheckBox3: TCheckBox;
+    CheckBox4: TCheckBox;
+    ComboBox1: TComboBox;
+    ColorBox1: TColorBox;
+    Label1: TLabel;
+    Label2: TLabel;
+    ComboBox2: TComboBox;
+    ColorBox2: TColorBox;
+    Label3: TLabel;
+    Label4: TLabel;
+    ColorBox3: TColorBox;
+    ComboBox3: TComboBox;
+    ColorBox4: TColorBox;
+    ComboBox4: TComboBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    Button1: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form32: TForm32;
+
+implementation
+
+{$R *.dfm}
+
+end.

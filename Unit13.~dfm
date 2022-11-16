@@ -1,0 +1,89 @@
+object Form13: TForm13
+  Left = 284
+  Top = 345
+  Width = 761
+  Height = 598
+  Caption = #1043#1088#1072#1092#1080#1082
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label1: TLabel
+    Left = 256
+    Top = 12
+    Width = 54
+    Height = 19
+    Caption = 'Label1'
+    Font.Charset = RUSSIAN_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Chart1: TChart
+    Left = 8
+    Top = 44
+    Width = 737
+    Height = 509
+    BackWall.Brush.Color = clWhite
+    BackWall.Brush.Style = bsClear
+    BackWall.Color = clSilver
+    LeftWall.Brush.Color = clWhite
+    MarginBottom = 0
+    MarginLeft = 0
+    MarginRight = 1
+    MarginTop = 0
+    Title.Brush.Color = clWhite
+    Title.Color = clWhite
+    Title.Text.Strings = (
+      'TChart')
+    Title.Visible = False
+    BackColor = clSilver
+    BottomAxis.Title.Caption = #1063#1080#1089#1083#1086' '#1096#1072#1075#1086#1074
+    BottomAxis.Title.Font.Charset = DEFAULT_CHARSET
+    BottomAxis.Title.Font.Color = clBlack
+    BottomAxis.Title.Font.Height = -15
+    BottomAxis.Title.Font.Name = 'Arial'
+    BottomAxis.Title.Font.Style = []
+    LeftAxis.MinorTickLength = 3
+    LeftAxis.Title.Caption = #1069#1085#1077#1088#1075#1080#1103' '#1089#1080#1089#1090#1077#1084#1099', '#1072'.'#1077'.'
+    LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
+    LeftAxis.Title.Font.Color = clBlack
+    LeftAxis.Title.Font.Height = -15
+    LeftAxis.Title.Font.Name = 'Arial'
+    LeftAxis.Title.Font.Style = []
+    Legend.Alignment = laLeft
+    Legend.Visible = False
+    RightAxis.Visible = False
+    TopAxis.Visible = False
+    View3D = False
+    View3DWalls = False
+    BevelOuter = bvNone
+    BevelWidth = 0
+    TabOrder = 0
+    object Series1: TLineSeries
+      Marks.ArrowLength = 8
+      Marks.Visible = False
+      SeriesColor = clRed
+      LinePen.Width = 2
+      Pointer.InflateMargins = True
+      Pointer.Style = psRectangle
+      Pointer.Visible = True
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Y'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+    end
+  end
+end

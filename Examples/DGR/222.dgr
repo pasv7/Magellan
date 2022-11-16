@@ -1,0 +1,90 @@
+ !***********************************************************
+ !*                        Magellan                         *
+ !*                designed by PANDORA soft                 *
+ !*                                                         *
+ !*      DGR-descriptor for generating energy diagramm      *
+ !*      Works with the interpreter as part of Magellan     *
+ !***********************************************************
+
+
+ TD:  Yes
+ TD_pl = up
+ TD = "Ёнергетическа€ диаграмма диссоциации Mg16"
+ TD(FS) = 14
+ TD(FN) = Tahoma
+ TD(FC) = Purple
+ TD(FSt) = Normal
+ IPX = 100
+ IPY = 80
+ SCX = 2
+ SCY = 13
+ SCIS = 24
+ AX:  Yes
+ AX = " оордината реакции"
+ AX(W) = 1
+ AX(FS) = 12
+ AX(FN) = Arial
+ AX(FC) = Black
+ AX(FSt) = Normal
+ AY:  Yes
+ AY = "Ёнерги€, ккал/моль"
+ AY(W) = 1
+ AY(FS) = 12
+ AY(FN) = Arial
+ AY(FC) = Black
+ AY(FSt) = Normal
+ AYT(W) = 1
+ AYT(L) = 4
+ AYT(F) = 2
+ AYT_pl = out
+ AYT(FS) = 10
+ AYT(FN) = Arial
+ AYT(FC) = Black
+ AYT(FSt) = Normal
+ LZ:  No
+ LZ(W) = 1
+ LZ(C) = Blue
+ LZ(St) = Dot
+ LMIN:  No
+ LMIN(W) = 1
+ LMIN(C) = Lime
+ LMIN(St) = Dot
+ LMIN = 100 %
+ LMAX:  No
+ LMAX(W) = 1
+ LMAX(C) = Red
+ LMAX(St) = Dot
+ LMAX = 100 %
+
+ P0   0              LM     "Mg16(1)"                       [0]      Solid   Black     4   50
+ P1   91.7           LM     "Mg9+Mg4+Mg"                    [1]      Solid   Black     4   50
+ P2   77.6           LM     "Mg6+Mg9+Mg"                    [2]      Solid   Black     4   50
+ P3   56             LM     "Mg11+Mg5"                      [3]      Solid   Black     4   50
+ P4   47.3           LM     "Mg12+Mg4"                      [4]      Solid   Black     4   50
+ P5   56.9           LM     "Mg13+Mg2+Mg"                   [5]      Solid   Black     4   50
+ P6   43.3           LM     "Mg14+Mg2"                      [6]      Solid   Black     4   50
+ P7   16.3           LM     "Mg15+Mg"                       [7]      Solid   Black     4   50
+ P8   -1.2           LM     "Mg16(2)"                       [8]      Solid   Black     4   50
+ P9   74.8           LM     "Mg8+Mg8"                       [9]      Solid   Black     4   50
+
+ AR   0->1    1    Solid   Black       Name=(Arial,10,Red,Bold,-35,0):                                 Yes
+ AR   0->2    1    Solid   Black       Name=(Arial,10,Red,Bold,0,10):                                  Yes
+ AR   0->3    1    Solid   Black       Name=(Arial,10,Red,Bold,1,5):                                   Yes
+ AR   0->4    1    Solid   Black       Name=(Arial,10,Red,Bold,18,50):                                 Yes
+ AR   0->5    1    Solid   Black       Name=(Arial,10,Red,Bold,-2,0):                                  Yes
+ AR   0->6    1    Solid   Black       Name=(Arial,10,Red,Bold,0,0):                                   Yes
+ AR   0->7    1    Solid   Black       Name=(Arial,10,Red,Bold,0,0):                                   Yes
+ AR   8->9    1    Solid   Black       Name=(Arial,10,Red,Bold,0,0):                                   Yes
+ AR   3->7    1    Solid   Black       Name=(Arial,10,Red,Bold,0,-23):                                 Yes
+
+ SPT   P0    Name=(Arial,10,Blue,Normal,17,0):                              Yes   Energy=(Arial,10,Black,Normal,15,0):                           Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P1    Name=(Arial,10,Blue,Normal,9,0):                               Yes   Energy=(Arial,10,Black,Normal,10,0):                           Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P2    Name=(Arial,10,Blue,Normal,7,0):                               Yes   Energy=(Arial,10,Black,Normal,8,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P3    Name=(Arial,10,Blue,Normal,12,0):                              Yes   Energy=(Arial,10,Black,Normal,9,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P4    Name=(Arial,10,Blue,Normal,12,0):                              Yes   Energy=(Arial,10,Black,Normal,7,-2):                           Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P5    Name=(Arial,10,Blue,Normal,6,0):                               Yes   Energy=(Arial,10,Black,Normal,5,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P6    Name=(Arial,10,Blue,Normal,12,0):                              Yes   Energy=(Arial,10,Black,Normal,7,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P7    Name=(Arial,10,Blue,Normal,16,0):                              Yes   Energy=(Arial,10,Black,Normal,5,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P8    Name=(Arial,10,Blue,Normal,15,0):                              Yes   Energy=(Arial,10,Black,Normal,5,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+ SPT   P9    Name=(Arial,10,Blue,Normal,13,0):                              Yes   Energy=(Arial,10,Black,Normal,5,0):                            Yes   Num=(Arial,10,Olive,Normal,0,0):                               No
+

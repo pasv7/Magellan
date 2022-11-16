@@ -1,0 +1,252 @@
+object Form24: TForm24
+  Left = 571
+  Top = 33
+  Width = 530
+  Height = 541
+  Caption = #1050#1086#1083#1077#1073#1072#1085#1080#1103' ('#1095#1072#1089#1090#1086#1090#1085#1099#1081' '#1072#1085#1072#1083#1080#1079')'
+  Color = clBtnFace
+  Font.Charset = RUSSIAN_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Menu = MainMenu1
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnCreate = FormCreate
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 16
+  object Label1: TLabel
+    Left = 455
+    Top = 258
+    Width = 49
+    Height = 16
+    Caption = #1057#1080#1089#1090#1077#1084#1072
+  end
+  object Label8: TLabel
+    Left = 438
+    Top = 407
+    Width = 63
+    Height = 16
+    Caption = #1040#1084#1087#1083#1080#1090#1091#1076#1072
+  end
+  object Label9: TLabel
+    Left = 437
+    Top = 437
+    Width = 54
+    Height = 16
+    Caption = #1057#1082#1086#1088#1086#1089#1090#1100
+  end
+  object ComboBox1: TComboBox
+    Left = 8
+    Top = 256
+    Width = 445
+    Height = 22
+    Style = csOwnerDrawFixed
+    ItemHeight = 16
+    TabOrder = 0
+    OnChange = ComboBox1Change
+  end
+  object ListView1: TListView
+    Left = 8
+    Top = 8
+    Width = 496
+    Height = 241
+    Columns = <
+      item
+        Caption = #8470
+      end
+      item
+        Alignment = taCenter
+        Caption = #1058#1080#1087
+        Width = 80
+      end
+      item
+        Alignment = taCenter
+        Caption = #1063#1072#1089#1090#1086#1090#1072', 1/'#1089#1084
+        Width = 150
+      end
+      item
+        Alignment = taCenter
+        Caption = #1048#1085#1090#1077#1085#1089#1080#1074#1085#1086#1089#1090#1100', '#1086'.'#1077'.'
+        Width = 150
+      end>
+    ReadOnly = True
+    RowSelect = True
+    TabOrder = 1
+    ViewStyle = vsReport
+  end
+  object BitBtn1: TBitBtn
+    Left = 342
+    Top = 292
+    Width = 162
+    Height = 32
+    Caption = #1048#1050'-'#1089#1087#1077#1082#1090#1088
+    TabOrder = 2
+    OnClick = BitBtn1Click
+  end
+  object BitBtn2: TBitBtn
+    Left = 8
+    Top = 398
+    Width = 65
+    Height = 70
+    Caption = #1057#1090#1072#1088#1090
+    TabOrder = 3
+    OnClick = BitBtn2Click
+  end
+  object BitBtn3: TBitBtn
+    Left = 342
+    Top = 325
+    Width = 162
+    Height = 32
+    Caption = #1056#1072#1084#1072#1085
+    Enabled = False
+    TabOrder = 4
+    OnClick = BitBtn3Click
+  end
+  object BitBtn4: TBitBtn
+    Left = 342
+    Top = 359
+    Width = 162
+    Height = 32
+    Caption = 'VCD'
+    Enabled = False
+    TabOrder = 5
+    OnClick = BitBtn4Click
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Top = 285
+    Width = 329
+    Height = 107
+    Caption = #1054#1073#1097#1080#1077' '#1076#1072#1085#1085#1099#1077
+    TabOrder = 6
+    object Label2: TLabel
+      Left = 8
+      Top = 29
+      Width = 101
+      Height = 16
+      Caption = #1055#1086#1083#1103#1088#1080#1079#1091#1077#1084#1086#1089#1090#1100':'
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 50
+      Width = 150
+      Height = 16
+      Caption = #1054#1073#1097#1077#1077' '#1095#1080#1089#1083#1086' '#1082#1086#1083#1077#1073#1072#1085#1080#1081':'
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 71
+      Width = 155
+      Height = 16
+      Caption = #1063#1080#1089#1083#1086' '#1084#1085#1080#1084#1099#1093' '#1082#1086#1083#1077#1073#1072#1085#1080#1081':'
+    end
+    object Label5: TLabel
+      Left = 114
+      Top = 29
+      Width = 37
+      Height = 16
+      Caption = 'Label5'
+    end
+    object Label6: TLabel
+      Left = 164
+      Top = 50
+      Width = 37
+      Height = 16
+      Caption = 'Label6'
+    end
+    object Label7: TLabel
+      Left = 167
+      Top = 71
+      Width = 37
+      Height = 16
+      Caption = 'Label7'
+    end
+  end
+  object TrackBar1: TTrackBar
+    Left = 76
+    Top = 408
+    Width = 359
+    Height = 28
+    Max = 30
+    Min = 2
+    Position = 10
+    TabOrder = 7
+    ThumbLength = 15
+    TickMarks = tmBoth
+    TickStyle = tsNone
+  end
+  object TrackBar2: TTrackBar
+    Left = 76
+    Top = 438
+    Width = 359
+    Height = 22
+    Max = 60
+    Min = 2
+    Frequency = 4
+    Position = 10
+    TabOrder = 8
+    ThumbLength = 15
+    TickMarks = tmBoth
+    TickStyle = tsNone
+  end
+  object MainMenu1: TMainMenu
+    Left = 344
+    Top = 463
+    object N1: TMenuItem
+      Caption = #1060#1072#1081#1083
+      object N2: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100
+        object N4: TMenuItem
+          Caption = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083
+          OnClick = N4Click
+        end
+        object Excel1: TMenuItem
+          Caption = #1051#1080#1089#1090' Excel'
+          OnClick = Excel1Click
+        end
+      end
+      object N3: TMenuItem
+        Caption = #1057#1086#1093#1088#1072#1085#1080#1090#1100' '#1074#1089#1077
+        object N5: TMenuItem
+          Caption = #1058#1077#1082#1089#1090#1086#1074#1099#1081' '#1092#1072#1081#1083
+          OnClick = N5Click
+        end
+        object Excel2: TMenuItem
+          Caption = #1051#1080#1089#1090' Excel'
+          OnClick = Excel2Click
+        end
+      end
+      object N7: TMenuItem
+        Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1084#1086#1076#1099
+        OnClick = N7Click
+      end
+      object N6: TMenuItem
+        Caption = #1042#1099#1093#1086#1076
+        OnClick = N6Click
+      end
+    end
+  end
+  object SaveDialog1: TSaveDialog
+    Filter = #1060#1072#1081#1083' '#1095#1072#1089#1090#1086#1090' *.frq|*.frq'
+    Left = 312
+    Top = 463
+  end
+  object ExcelApplication1: TExcelApplication
+    AutoConnect = False
+    ConnectKind = ckRunningOrNew
+    AutoQuit = False
+    Left = 376
+    Top = 463
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 10
+    OnTimer = Timer1Timer
+    Left = 280
+    Top = 463
+  end
+end

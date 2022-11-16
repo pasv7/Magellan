@@ -1,0 +1,160 @@
+object Form5: TForm5
+  Left = 365
+  Top = 160
+  Width = 619
+  Height = 651
+  Caption = #1043#1080#1089#1090#1086#1075#1088#1072#1084#1084#1099' '#1084#1077#1078#1072#1090#1086#1084#1085#1099#1093' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1081
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Chart1: TChart
+    Left = 2
+    Top = 1
+    Width = 600
+    Height = 273
+    AllowPanning = pmNone
+    AllowZoom = False
+    BackWall.Brush.Color = clWhite
+    BackWall.Brush.Style = bsClear
+    BackWall.Color = clSilver
+    BackWall.Pen.Visible = False
+    BottomWall.Brush.Color = clWhite
+    Gradient.EndColor = clWhite
+    LeftWall.Brush.Color = clWhite
+    LeftWall.Color = clYellow
+    MarginTop = 5
+    Title.Brush.Color = clWhite
+    Title.Brush.Style = bsClear
+    Title.Color = 4227072
+    Title.Font.Charset = DEFAULT_CHARSET
+    Title.Font.Color = clBlue
+    Title.Font.Height = -16
+    Title.Font.Name = 'Arial'
+    Title.Font.Style = []
+    Title.Frame.Style = psDash
+    Title.Text.Strings = (
+      #1056#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1077' '#1084#1077#1078#1072#1090#1086#1084#1085#1099#1093' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1081)
+    BackColor = clSilver
+    BottomAxis.Title.Caption = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1083#1080#1085' '#1089#1074#1103#1079#1077#1081', '#1040
+    BottomAxis.Title.Font.Charset = DEFAULT_CHARSET
+    BottomAxis.Title.Font.Color = clBlack
+    BottomAxis.Title.Font.Height = -15
+    BottomAxis.Title.Font.Name = 'Arial'
+    BottomAxis.Title.Font.Style = []
+    ClipPoints = False
+    Frame.Visible = False
+    LeftAxis.Title.Caption = #1063#1080#1089#1083#1086' '#1089#1074#1103#1079#1077#1081
+    LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
+    LeftAxis.Title.Font.Color = clBlack
+    LeftAxis.Title.Font.Height = -15
+    LeftAxis.Title.Font.Name = 'Arial'
+    LeftAxis.Title.Font.Style = []
+    Legend.DividingLines.Width = 4
+    Legend.ShadowColor = 4227327
+    Legend.Visible = False
+    RightAxis.ExactDateTime = False
+    RightAxis.Title.Angle = 90
+    RightAxis.Title.Caption = #1044#1086#1083#1103' '#1089#1074#1103#1079#1077#1081' '#1086#1090' '#1086#1073#1097#1077#1075#1086' '#1095#1080#1089#1083#1072', %'
+    RightAxis.Title.Font.Charset = DEFAULT_CHARSET
+    RightAxis.Title.Font.Color = clBlack
+    RightAxis.Title.Font.Height = -15
+    RightAxis.Title.Font.Name = 'Arial'
+    RightAxis.Title.Font.Style = []
+    TopAxis.Visible = False
+    View3D = False
+    View3DWalls = False
+    BevelOuter = bvNone
+    TabOrder = 0
+    object Series1: TBarSeries
+      Marks.ArrowLength = 20
+      Marks.Transparent = True
+      Marks.Visible = False
+      SeriesColor = clRed
+      VertAxis = aBothVertAxis
+      BarBrush.Color = clWhite
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Bar'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+    end
+  end
+  object Chart2: TChart
+    Left = 2
+    Top = 268
+    Width = 600
+    Height = 301
+    AllowPanning = pmNone
+    AllowZoom = False
+    BackWall.Brush.Color = clWhite
+    BackWall.Brush.Style = bsClear
+    BackWall.Color = clSilver
+    BackWall.Pen.Visible = False
+    BottomWall.Brush.Color = clWhite
+    LeftWall.Brush.Color = clWhite
+    MarginTop = 5
+    Title.Font.Charset = DEFAULT_CHARSET
+    Title.Font.Color = clBlue
+    Title.Font.Height = -16
+    Title.Font.Name = 'Arial'
+    Title.Font.Style = []
+    Title.Text.Strings = (
+      '            '#1054#1090#1085#1086#1089#1080#1090#1077#1083#1100#1085#1086#1077' '#1088#1072#1089#1087#1088#1077#1076#1077#1083#1077#1085#1080#1077' '#1084#1077#1078#1072#1090#1086#1084#1085#1099#1093' '#1088#1072#1089#1089#1090#1086#1103#1085#1080#1081)
+    BackColor = clSilver
+    BottomAxis.Title.Caption = #1044#1080#1072#1087#1072#1079#1086#1085' '#1076#1083#1080#1085' '#1089#1074#1103#1079#1077#1081', '#1040
+    BottomAxis.Title.Font.Charset = DEFAULT_CHARSET
+    BottomAxis.Title.Font.Color = clBlack
+    BottomAxis.Title.Font.Height = -15
+    BottomAxis.Title.Font.Name = 'Arial'
+    BottomAxis.Title.Font.Style = []
+    DepthAxis.Visible = True
+    Frame.Visible = False
+    LeftAxis.Title.Caption = #1044#1086#1083#1103' '#1089#1074#1103#1079#1077#1081', %'
+    LeftAxis.Title.Font.Charset = DEFAULT_CHARSET
+    LeftAxis.Title.Font.Color = clBlack
+    LeftAxis.Title.Font.Height = -15
+    LeftAxis.Title.Font.Name = 'Arial'
+    LeftAxis.Title.Font.Style = []
+    Legend.Visible = False
+    RightAxis.Visible = False
+    TopAxis.Visible = False
+    View3D = False
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Series2: TBarSeries
+      Marks.ArrowLength = 20
+      Marks.Visible = False
+      SeriesColor = clBlue
+      BarBrush.Color = clWhite
+      XValues.DateTime = False
+      XValues.Name = 'X'
+      XValues.Multiplier = 1.000000000000000000
+      XValues.Order = loAscending
+      YValues.DateTime = False
+      YValues.Name = 'Bar'
+      YValues.Multiplier = 1.000000000000000000
+      YValues.Order = loNone
+    end
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Top = 591
+    Width = 603
+    Height = 22
+    Panels = <
+      item
+        Width = 50
+      end>
+  end
+end

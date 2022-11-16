@@ -1,0 +1,743 @@
+unit Unit18;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, Chart, Series, Math, ExtCtrls;
+
+type
+  TForm18 = class(TForm)
+    Panel1: TPanel;
+    ComboBox1: TComboBox;
+    ComboBox2: TComboBox;
+    ComboBox3: TComboBox;
+    ComboBox4: TComboBox;
+    ComboBox5: TComboBox;
+    BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    Panel2: TPanel;
+    Splitter1: TSplitter;
+    ScrollBox1: TScrollBox;
+    procedure ComboBox1Change(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure ComboBox2Change(Sender: TObject);
+    procedure ComboBox3Change(Sender: TObject);
+    procedure ComboBox4Change(Sender: TObject);
+    procedure ComboBox5Change(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
+    procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+      MousePos: TPoint; var Handled: Boolean);
+    procedure BitBtn2Click(Sender: TObject);
+    procedure FormResize(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form18: TForm18;
+  num_chart: word=0;
+  TCh: array of TChart;
+
+implementation
+
+uses Unit1, Unit12, Unit24;
+
+{$R *.dfm}
+
+procedure TForm18.ComboBox1Change(Sender: TObject);
+begin
+if Combobox1.ItemIndex=0 then begin
+Combobox4.ItemIndex:=-1;
+Combobox5.ItemIndex:=-1;
+Combobox4.Enabled:=False;
+Combobox5.Enabled:=False;
+end;
+Combobox5.ItemIndex:=-1;
+if Combobox1.ItemIndex=1 then begin
+Combobox4.Enabled:=True;
+Combobox5.Enabled:=False;
+end;
+if Combobox1.ItemIndex=2 then begin
+Combobox4.Enabled:=True;
+Combobox5.Enabled:=True;
+end;
+
+
+
+
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+
+
+end;
+
+procedure TForm18.FormShow(Sender: TObject);
+var i: integer;
+begin
+Combobox2.Clear;
+if dial=true then begin
+for i:=1 to nomer_atoma do
+Combobox2.Items.Add(inttostr(i)+'('+atomoutel[1][i]+')') ;
+end
+else begin
+for i:=1 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]] do
+Combobox2.Items.Add(inttostr(i)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i]+')') ;
+end;
+
+
+
+
+Combobox3.Clear;
+if dial=true then begin
+for i:=1 to nomer_atoma do
+Combobox3.Items.Add(inttostr(i)+'('+atomoutel[1][i]+')') ;
+end
+else begin
+for i:=1 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]] do
+Combobox3.Items.Add(inttostr(i)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i]+')') ;
+end;
+
+
+
+Combobox4.Clear;
+if dial=true then begin
+for i:=1 to nomer_atoma do
+Combobox4.Items.Add(inttostr(i)+'('+atomoutel[1][i]+')') ;
+end
+else begin
+for i:=1 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]] do
+Combobox4.Items.Add(inttostr(i)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i]+')') ;
+end;
+
+
+
+Combobox5.Clear;
+if dial=true then begin
+for i:=1 to nomer_atoma do
+Combobox5.Items.Add(inttostr(i)+'('+atomoutel[1][i]+')') ;
+end
+else begin
+for i:=1 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]] do
+Combobox5.Items.Add(inttostr(i)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i]+')') ;
+end;
+
+
+
+Combobox2.ItemIndex:=0;
+Combobox3.ItemIndex:=1;
+
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+end;
+
+procedure TForm18.ComboBox2Change(Sender: TObject);
+var i: integer;
+Cb2,Cb3,Cb4,Cb5: string;
+begin
+Cb2:=Combobox2.Items[Combobox2.ItemIndex];
+Cb3:=Combobox3.Items[Combobox3.ItemIndex];
+Cb4:=Combobox4.Items[Combobox4.ItemIndex];
+Cb5:=Combobox5.Items[Combobox5.ItemIndex];
+Combobox3.Clear;
+Combobox4.Clear;
+Combobox5.Clear;
+
+if dial=true then begin
+for i:=0 to nomer_atoma-1 do begin
+if (Combobox2.Items[Combobox2.ItemIndex]<>inttostr(i+1)+'('+atomoutel[1][i+1]+')') then begin
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+end;
+end;
+end
+else begin
+for i:=0 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]]-1 do begin
+if (Combobox2.Items[Combobox2.ItemIndex]<>inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')') then begin
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+end;
+end;
+
+
+
+end;
+
+
+{
+Combobox2.Clear;
+for i:=1 to nomer_atoma do
+if  (i-1<>Combobox3.ItemIndex) and (i-1<>Combobox4.ItemIndex) and (i-1<>Combobox5.ItemIndex) then  Combobox2.Items.Add(inttostr(i)+'('+atomoutel[1][i]+')') ;
+}
+
+
+{
+for i:=0 to Combobox2.Items.Count-1 do
+if Combobox2.Items[i]=Cb2 then Combobox2.ItemIndex:=i;
+}
+for i:=0 to Combobox3.Items.Count-1 do
+if Combobox3.Items[i]=Cb3 then Combobox3.ItemIndex:=i;
+for i:=0 to Combobox4.Items.Count-1 do
+if Combobox4.Items[i]=Cb4 then Combobox4.ItemIndex:=i;
+for i:=0 to Combobox5.Items.Count-1 do
+if Combobox5.Items[i]=Cb5 then Combobox5.ItemIndex:=i;
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+end;
+
+
+
+
+
+
+procedure TForm18.ComboBox3Change(Sender: TObject);
+var i: integer;
+Cb2,Cb3,Cb4,Cb5: string;
+begin
+Cb2:=Combobox2.Items[Combobox2.ItemIndex];
+Cb3:=Combobox3.Items[Combobox3.ItemIndex];
+Cb4:=Combobox4.Items[Combobox4.ItemIndex];
+Cb5:=Combobox5.Items[Combobox5.ItemIndex];
+Combobox2.Clear;
+Combobox4.Clear;
+Combobox5.Clear;
+
+if dial=true then begin
+for i:=0 to nomer_atoma-1 do begin
+if (Combobox3.Items[Combobox3.ItemIndex]<>inttostr(i+1)+'('+atomoutel[1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+end;
+end;
+end
+else begin
+for i:=0 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]]-1 do begin
+if (Combobox3.Items[Combobox3.ItemIndex]<>inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+end;
+end;
+end;
+
+
+
+
+
+
+for i:=0 to Combobox2.Items.Count-1 do
+if Combobox2.Items[i]=Cb2 then Combobox2.ItemIndex:=i;
+
+for i:=0 to Combobox4.Items.Count-1 do
+if Combobox4.Items[i]=Cb4 then Combobox4.ItemIndex:=i;
+for i:=0 to Combobox5.Items.Count-1 do
+if Combobox5.Items[i]=Cb5 then Combobox5.ItemIndex:=i;
+
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+
+
+end;
+
+
+
+
+
+
+
+procedure TForm18.ComboBox4Change(Sender: TObject);
+var i: integer;
+Cb2,Cb3,Cb4,Cb5: string;
+begin
+Cb2:=Combobox2.Items[Combobox2.ItemIndex];
+Cb3:=Combobox3.Items[Combobox3.ItemIndex];
+Cb4:=Combobox4.Items[Combobox4.ItemIndex];
+Cb5:=Combobox5.Items[Combobox5.ItemIndex];
+Combobox2.Clear;
+Combobox3.Clear;
+Combobox5.Clear;
+
+
+if dial=true then begin
+for i:=0 to nomer_atoma-1 do begin
+if (Combobox4.Items[Combobox4.ItemIndex]<>inttostr(i+1)+'('+atomoutel[1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+end;
+end;
+end
+else begin
+for i:=0 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]]-1 do begin
+if (Combobox4.Items[Combobox4.ItemIndex]<>inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox5.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+end;
+end;
+end;
+
+
+
+
+for i:=0 to Combobox2.Items.Count-1 do
+if Combobox2.Items[i]=Cb2 then Combobox2.ItemIndex:=i;
+for i:=0 to Combobox3.Items.Count-1 do
+if Combobox3.Items[i]=Cb3 then Combobox3.ItemIndex:=i;
+for i:=0 to Combobox5.Items.Count-1 do
+if Combobox5.Items[i]=Cb5 then Combobox5.ItemIndex:=i;
+
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+
+
+end;
+
+
+
+
+
+
+procedure TForm18.ComboBox5Change(Sender: TObject);
+var i: integer;
+Cb2,Cb3,Cb4,Cb5: string;
+begin
+Cb2:=Combobox2.Items[Combobox2.ItemIndex];
+Cb3:=Combobox3.Items[Combobox3.ItemIndex];
+Cb4:=Combobox4.Items[Combobox4.ItemIndex];
+Cb5:=Combobox5.Items[Combobox5.ItemIndex];
+Combobox2.Clear;
+Combobox3.Clear;
+Combobox4.Clear;
+
+if dial=true then begin
+for i:=0 to nomer_atoma-1 do begin
+if (Combobox5.Items[Combobox5.ItemIndex]<>inttostr(i+1)+'('+atomoutel[1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel[1][i+1]+')');
+end;
+end;
+end
+else begin
+for i:=0 to nomer_atoma_mult[basket[Form12.ComboBox1.ItemIndex]]-1 do begin
+if (Combobox5.Items[Combobox5.ItemIndex]<>inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')') then begin
+Combobox2.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox3.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+Combobox4.Items.Add(inttostr(i+1)+'('+atomoutel_mult[basket[Form12.ComboBox1.ItemIndex]][1][i+1]+')');
+end;
+end;
+end;
+
+
+
+for i:=0 to Combobox2.Items.Count-1 do
+if Combobox2.Items[i]=Cb2 then Combobox2.ItemIndex:=i;
+for i:=0 to Combobox3.Items.Count-1 do
+if Combobox3.Items[i]=Cb3 then Combobox3.ItemIndex:=i;
+for i:=0 to Combobox4.Items.Count-1 do
+if Combobox4.Items[i]=Cb4 then Combobox4.ItemIndex:=i;
+
+
+///////ÊÍÎÏÊÀ ÃÐÀÔÈÊ ÄÎËÆÍÀ ÀÊÒÈÂÈÐÎÂÀÒÜÑß ÏÐÈ ÂÛÁÎÐÅ ÀÒÎÌÍÛÕ ÖÅÍÒÐÎÂ///////
+if  Combobox1.ItemIndex=0 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=1 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+if  Combobox1.ItemIndex=2 then begin
+if (Combobox2.ItemIndex>=0) and (Combobox3.ItemIndex>=0) and (Combobox4.ItemIndex>=0) and (Combobox5.ItemIndex>=0) then BitBtn1.Enabled:=True
+else  BitBtn1.Enabled:=False;
+end;
+/////////////////////////////////////////////////////////////////////////////
+end;
+
+
+
+
+
+
+
+procedure TForm18.BitBtn1Click(Sender: TObject);
+var
+Series: TLineSeries;
+i,posi_scroll: integer;
+parameter,parameterx,parametery,parameterz, parH,parR,parameter2,parameter3,BD,parameter4,
+parameter12,parameter13,parameter23,parameterx23,parameterx45,parametery23,parametery45,
+parameterz23,parameterz45,parameter1,parameter5,parameter6,parameterx43,parametery43,parameterz43,DetX: real;
+begin
+
+posi_scroll:=Form18.ScrollBox1.VertScrollBar.Position;
+Form18.ScrollBox1.VertScrollBar.Position:=0;
+setlength(TCh,num_chart+1);
+TCh[num_chart]:=TChart.Create(self);
+with TCh[num_chart] do begin
+Parent:=Form18.ScrollBox1;
+Name:='TCh'+inttostr(num_chart);
+Left:=0;
+Top:=65*(6*num_chart+1)-55;
+Width:=Form18.ClientWidth-10;
+Height:=400;
+View3D:=False;
+Visible:=True;
+BevelInner:=bvNone;
+BevelOuter:=bvNone;
+BorderStyle:=bsNone;
+//BevelWidth:=0;
+BottomAxis.Title.Caption:='Íîìåð øàãà ïðè îïòèìèçàöèè';
+if Form18.ComboBox1.ItemIndex=0 then LeftAxis.Title.Caption:=Form18.Combobox1.Text+' '+Combobox2.Text+'-'+Combobox3.Text;
+if Form18.ComboBox1.ItemIndex=1 then LeftAxis.Title.Caption:=Form18.Combobox1.Text+' '+Combobox2.Text+'-'+Combobox3.Text+'-'+Combobox4.Text;
+if Form18.ComboBox1.ItemIndex=2 then LeftAxis.Title.Caption:=Form18.Combobox1.Text+' '+Combobox2.Text+'-'+Combobox3.Text+'-'+Combobox4.Text+'-'+Combobox5.Text;
+BottomAxis.Title.Font.Size:=11;
+BottomAxis.Title.Font.Name:='Tahoma';
+LeftAxis.Title.Font.Size:=11;
+LeftAxis.Title.Font.Name:='Tahoma';
+RightAxis.Visible:=False;
+TopAxis.Visible:=False;
+Legend.Visible:=False;
+LeftAxis.Grid.Visible:=false;
+BottomAxis.Grid.Visible:=false;
+BottomAxis.MinorTicks.Visible:=false;
+if Form18.ComboBox1.ItemIndex=0 then  TCh[num_chart].Title.Text.Add('Çàâèñèìîñòü äëèíû ñâÿçè '+Combobox2.Text+'-'+Combobox3.Text +' îò êîîðäèíàòû');
+if Form18.ComboBox1.ItemIndex=1 then  TCh[num_chart].Title.Text.Add('Çàâèñèìîñòü âàëåíòíîãî óãëà '+Combobox2.Text+'-'+Combobox3.Text +'-'+Combobox4.Text+' îò êîîðäèíàòû');
+if Form18.ComboBox1.ItemIndex=2 then  TCh[num_chart].Title.Text.Add('Çàâèñèìîñòü äâóãðàííîãî óãëà '+Combobox2.Text+'-'+Combobox3.Text +'-'+Combobox4.Text+'-'+Combobox5.Text+' îò êîîðäèíàòû');
+TCh[num_chart].Title.Font.Size:=12;
+TCh[num_chart].Frame.Visible:=false;
+end;
+Series:=TLineSeries.Create(TCh[num_chart]);
+Series.LinePen.Width:=2;
+Series.LinePen.Style:=psSolid;
+Series.Pointer.Visible:=True;
+
+
+if dial=true then begin      // äèàëîã îòêðûòèÿ îäíîãî ôàéëà
+if Combobox1.ItemIndex=0 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+parameterx:= sqr(  strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parametery:= sqr(  strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameter:=sqrt(parameterx+parametery+parameterz);
+Series.AddXY(strtofloat(step[i-1]),parameter ,'',RGB(255,0,0));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó
+end;
+end;
+end
+else begin                    //äèàëîã îòêðûòèÿ íåñêîüêèõ ôàéëîâ
+if Combobox1.ItemIndex=0 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+parameterx:= sqr(  strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parametery:= sqr(  strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameter:=sqrt(parameterx+parametery+parameterz);
+Series.AddXY(strtofloat(step_mult[basket[Form12.ComboBox1.ItemIndex]][i-1]),parameter ,'',RGB(255,0,0));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó
+end;
+end;
+end;
+
+
+
+
+                                // äèàëîã îòêðûòèÿ îäíîãî ôàéëà
+if dial=true then begin
+if Combobox1.ItemIndex=1 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+parameterx:= sqr(  strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parametery:= sqr(  strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameter12:=sqrt(parameterx+parametery+parameterz);
+parameterx:= sqr(  strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parametery:= sqr(  strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameter23:=sqrt(parameterx+parametery+parameterz);
+parameterx:= sqr(  strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parametery:= sqr(  strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameter13:=sqrt(parameterx+parametery+parameterz);
+parameter:=  (ArcCos((sqr(parameter12)+sqr(parameter23)-sqr(parameter13))/(2*parameter12*parameter23)))*180/pi;
+Series.AddXY(strtofloat(step[i-1]),parameter ,'',RGB(0,255,0));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó
+end;
+end;
+end
+else begin                   //äèàëîã îòêðûòèÿ íåñêîüêèõ ôàéëîâ
+if Combobox1.ItemIndex=1 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+parameterx:= sqr(  strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parametery:= sqr(  strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]));
+parameter12:=sqrt(parameterx+parametery+parameterz);
+parameterx:= sqr(  strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parametery:= sqr(  strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameter23:=sqrt(parameterx+parametery+parameterz);
+parameterx:= sqr(  strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parametery:= sqr(  strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameterz:= sqr(  strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]));
+parameter13:=sqrt(parameterx+parametery+parameterz);
+parameter:=  (ArcCos((sqr(parameter12)+sqr(parameter23)-sqr(parameter13))/(2*parameter12*parameter23)))*180/pi;
+Series.AddXY(strtofloat(step_mult[basket[Form12.ComboBox1.ItemIndex]][i-1]),parameter ,'',RGB(0,255,0));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó
+end;
+end;
+end;
+
+
+
+
+
+
+if dial=true then begin
+if Combobox1.ItemIndex=2 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+
+parameterx23:= strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parametery23:= strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parameterz23:= strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+
+parameterx43:= strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parametery43:= strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parameterz43:= strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+
+parameter1:= parametery23*parameterz43-parametery43*parameterz23; // A
+parameter2:= parameterz23*parameterx43-parameterx23*parameterz43; // B
+parameter3:= parameterx23*parametery43-parametery23*parameterx43; // B
+
+parameterx45:= strtofloat(xout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+parametery45:= strtofloat(yout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+parameterz45:= strtofloat(zout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+
+parameter4:= parametery43*parameterz45-parametery45*parameterz43; // A
+parameter5:= parameterz43*parameterx45-parameterx43*parameterz45; // B
+parameter6:= parameterx43*parametery45-parametery43*parameterx45; // B
+
+parH:=parameter1*parameter4+parameter2*parameter5+parameter3*parameter6;
+parR:=sqrt(sqr(parameter1)+ sqr(parameter2)+  sqr(parameter3));
+BD:=sqrt(sqr(parameter4)+ sqr(parameter5)+  sqr(parameter6));
+
+
+DetX:=(strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(
+zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]))  +  (strtofloat(xout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]))  +  (strtofloat(
+xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(
+yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout[i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(xout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(
+yout[i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(yout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout[i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(zout[i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]));
+
+if DetX>0 then parameter:=180 - ArcCos( parH/(parR*BD))*180/pi;
+if DetX<0 then parameter:= ArcCos( parH/(parR*BD))*180/pi - 180;
+if DetX=0 then  begin
+showmessage('×åòûðå àòîìíûõ öåíòðà ëåæàò íà îäíîé ïðÿìîé. Äâóãðàííûé óãîë íå îïðåäåëåí');
+break;
+end;
+
+Series.AddXY(strtofloat(step[i-1]),parameter ,'',RGB(0,0,255));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó }
+end;
+end;
+
+end
+
+else begin
+if Combobox1.ItemIndex=2 then begin
+for i:=1 to Form12.ListView1.Items.Count do begin
+
+parameterx23:= strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parametery23:= strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parameterz23:= strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+
+parameterx43:= strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parametery43:= strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+parameterz43:= strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))]);
+
+parameter1:= parametery23*parameterz43-parametery43*parameterz23; // A
+parameter2:= parameterz23*parameterx43-parameterx23*parameterz43; // B
+parameter3:= parameterx23*parametery43-parametery23*parameterx43; // B
+
+parameterx45:= strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+parametery45:= strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+parameterz45:= strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])  -    strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))]);
+
+parameter4:= parametery43*parameterz45-parametery45*parameterz43; // A
+parameter5:= parameterz43*parameterx45-parameterx43*parameterz45; // B
+parameter6:= parameterx43*parametery45-parametery43*parameterx45; // B
+
+parH:=parameter1*parameter4+parameter2*parameter5+parameter3*parameter6;
+parR:=sqrt(sqr(parameter1)+ sqr(parameter2)+  sqr(parameter3));
+BD:=sqrt(sqr(parameter4)+ sqr(parameter5)+  sqr(parameter6));
+
+
+DetX:=(strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-
+strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]))  +  (strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-
+strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]))  +  (strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-
+strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-
+strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-
+strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-
+strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) - (strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox4.Text,0,pos('(',Combobox4.Text)-1))])-strtofloat(xout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) * (strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox3.Text,0,pos('(',Combobox3.Text)-1))])-strtofloat(yout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))])) *(strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox5.Text,0,pos('(',Combobox5.Text)-1))])-
+strtofloat(zout_mult[basket[Form12.ComboBox1.ItemIndex]][i][strtoint(copy(Combobox2.Text,0,pos('(',Combobox2.Text)-1))]));
+
+if DetX>0 then parameter:=180 - ArcCos( parH/(parR*BD))*180/pi;
+if DetX<0 then parameter:= ArcCos( parH/(parR*BD))*180/pi - 180;
+if DetX=0 then  begin
+showmessage('×åòûðå àòîìíûõ öåíòðà ëåæàò íà îäíîé ïðÿìîé. Äâóãðàííûé óãîë íå îïðåäåëåí');
+break;
+end;
+
+Series.AddXY(strtofloat(step_mult[basket[Form12.ComboBox1.ItemIndex]][i-1]),parameter ,'',RGB(0,0,255));//Äîáàâëÿåøü êîîðäèíàòû â ãðàôèê
+TCh[num_chart].AddSeries(Series);//Äîáàâëÿåøü ãðàôèê â äèàãðàììó }
+end;
+end;
+
+
+
+
+
+end;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+num_chart:=num_chart+1;   // åñëè ýòî óáðàòü, òî ïðîèñõîäèò çàìåùåíèå îäíîãî ãðàôèêà äðóãèì, ÷òî ìîæíî îòðàçèòü â íàñòðîéêàõ
+Form18.ScrollBox1.VertScrollBar.Position:=posi_scroll;
+
+end;
+
+procedure TForm18.FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+Form18.ScrollBox1.VertScrollBar.Position:=Form18.ScrollBox1.VertScrollBar.Position+20;
+end;
+
+procedure TForm18.FormMouseWheelUp(Sender: TObject; Shift: TShiftState;
+  MousePos: TPoint; var Handled: Boolean);
+begin
+Form18.ScrollBox1.VertScrollBar.Position:=Form18.ScrollBox1.VertScrollBar.Position-20;
+end;
+
+procedure TForm18.BitBtn2Click(Sender: TObject);
+ var i: word;
+begin
+if TCh <>nil then begin
+i:=0;
+Repeat
+if TCh[i]<>nil then FreeAndNil(TCh[i]);
+i:=i+1;
+until i>=num_chart;
+end;
+num_chart:=0;
+
+end;
+
+procedure TForm18.FormResize(Sender: TObject);
+var i: integer;
+begin
+if TCh<>nil then begin
+for i:=0 to length(TCh)-1 do
+TCh[i].Width:=Form18.ClientWidth-10;
+end;
+end;
+
+end.
